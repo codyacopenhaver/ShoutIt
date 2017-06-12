@@ -3,8 +3,8 @@ include 'database.php';
 
 //Check if form was submitted
 if(isset($_POST['submit'])){
-  $user = mysqli_real_escape_string($con, $_POST['user']);
-  $message = mysqli_real_escape_string($con, $_POST['message']);
+  $user = htmlspecialchars(mysqli_real_escape_string($con, $_POST['user']));
+  $message = htmlspecialchars(mysqli_real_escape_string($con, $_POST['message']));
   //Set timezone
   date_default_timezone_set("America/Indiana/Indianapolis");
   $time = date('h:i:s a', time());
